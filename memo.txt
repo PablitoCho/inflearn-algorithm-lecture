@@ -1,0 +1,39 @@
+def ball(num1, num2):
+    balls = 0
+    strnum1 = str(num1)
+    for i, num in enumerate(str(num2)):
+        if num in strnum1 and num != int(strnum1[i]):
+            balls += 1
+    return balls
+
+def strike(num1, num2):
+    strikes = 0
+    strnum1 = str(num1)
+    for i, num in enumerate(str(num2)):
+        if num == int(strnum1[i]):
+            strikes += 1
+    return strikes
+
+answer = 0
+for i in range(100, 1000):
+    for hint in hints:
+        print(f"hint {hint}")
+        num, strikes, balls = hint
+        if ball(i, num) == balls and strike(i, num) == strikes:
+            print(f"  case {i} {num}.. S {strike(i, num)} B {ball(i, num)}")
+            answer += 1
+
+print(answer)
+
+
+
+# answer = 0
+# # for _ in range(TC):
+# for i in range(100, 1000):
+#     if ball(num, i) == balls and strike(num, i) == strikes:
+#         answer += 1
+
+# print(answer)
+
+        
+
