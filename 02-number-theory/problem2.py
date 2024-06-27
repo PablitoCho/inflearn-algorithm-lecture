@@ -7,13 +7,17 @@
 # 3 5
 
 n = int(input())
-s = int(n**0.5)
+for i in range(1, int(n**0.5)+1):
+    if n % i ==0:
+        print(i, n//i)
 
-divisors = []
+# s = int(n**0.5)
 
-for i in range(2, s+1):
-    if n % i == 0:
-        divisors += [i, n // i]
+# divisors = []
 
-print(len(divisors))
-print(divisors)
+# for i in range(2, s+1):
+#     if n % i == 0:
+#         divisors += [i, n // i]
+
+# print(len(divisors))
+# print(divisors)

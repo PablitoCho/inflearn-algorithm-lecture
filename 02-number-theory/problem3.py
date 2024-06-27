@@ -1,9 +1,17 @@
 # 문제 3. 숨어 있는 숫자 찾기 ( #1407, # 2247 )
-# 숨어있는 숫자의 범위 A,B가 주어진다.
-# A에서 B까지 숫자를 나열해서,
-# 각각의 숫자에서 2의 제곱수로 나누어지는 약수를 찾아 모두 더해서 출력하시오.
-# 176 177
-# 17
+# https://www.acmicpc.net/problem/1407
+# 15 = 2^0 * 2 * 5 = f(15) = 1
+# 40 = 2^3 * 5 => f(40) = 8
+# given A, B... A<=B .. f(A) + f(A+1) + ... + f(B-1) + f(B)
 
+A, B = map(int, input().split())
+def cal(number):
+    divisor = 1
+    while number % divisor == 0:
+        divisor *= 2
+    return int(divisor / 2)
 
-
+answer = 0
+for x in range(A, B+1):
+    answer += cal(x)
+print(answer)
